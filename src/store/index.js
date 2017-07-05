@@ -7,6 +7,8 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {
+
+    isAddCompPopupShown: false,
     // defaultCmpns
     txtComp: {
       id: null,
@@ -55,6 +57,9 @@ const store = new Vuex.Store({
     },
     toggleModal (state) {
       state.isModalOpen = !state.isModalOpen;
+    },
+    toggleAddCompPopup (state) {
+      state.isAddCompPopupShown = !state.isAddCompPopupShown
     }
   }
 })

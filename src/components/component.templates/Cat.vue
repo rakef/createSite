@@ -18,13 +18,13 @@ export default {
 <style scoped>
 div {
   width: 100%;
-  height: 300px;
+  height: 150px;
   background-color: pink;
   padding: .2em;
   margin: 0;
 }
 img {
-  height: 300px;
+  height: 150px;
   float: left;
 }
 </style>

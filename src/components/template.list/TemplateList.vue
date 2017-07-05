@@ -1,6 +1,8 @@
 <template>
   <main>
       <!--<div v-for="cmpnTemplates"></div>-->
+      <button @click="handleAddCompPopup">&CirclePlus;</button>
+      <add-cmpn-popup v-if="isAddCompPopupShown"></add-cmpn-popup>
       <component 
           v-for="(cmpn, idx) in cmpnTemplates" 
           :key="idx" :is="cmpn.cmpn"
@@ -11,9 +13,13 @@
 </template>
 
 <script>
+import AddCmpnPopup from '../service/AddCmpnPopup';
 import TitleCmpn from '../component.templates/TitleCmpn';
 import Cat from '../component.templates/Cat';
 export default {
+  components: {
+    AddCmpnPopup
+  },
   data() {
     return {
       cmpnTemplates: [
@@ -27,10 +33,25 @@ export default {
         },
       ]
     }
+  },
+  methods: {
+    handleAddCompPopup() {
+      this.$store.commit('toggleAddCompPopup')
+    }
+  },
+  computed: {
+    isAddCompPopupShown() {return this.$store.state.isAddCompPopupShown}
+    // isModalOpen() {return this.$store.state.isModalOpen}
   }
 }
 </script>
 
 <style>
+  button {
+    font-size: 2em;
+    border: none;
+    padding: 2px;
+    background-color: transparent;
+  }
   
 </style>
