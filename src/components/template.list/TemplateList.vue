@@ -16,6 +16,7 @@
 import AddCmpnPopup from '../service/AddCmpnPopup';
 import TitleCmpn from '../component.templates/TitleCmpn';
 import Cat from '../component.templates/Cat';
+import AppHeader from '../component.templates/AppHeader';
 export default {
   components: {
     AddCmpnPopup
@@ -30,6 +31,10 @@ export default {
         {
           cmpn: Cat,
           txt: 'Meow'
+        },
+        {
+          cmpn: AppHeader,
+          txt: null
         },
       ]
     }

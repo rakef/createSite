@@ -1,7 +1,7 @@
 <template>
   <div>
     <img :src = "imgUrl"> </img>
-  <h1 contenteditable="true" @keyup="editTextContent($event)"> {{title}}</h1>
+    <h1 contenteditable="true" @keyup="editTextContent($event)"> {{title}}</h1>
     <p contenteditable="true">{{subtitle}} </p>
   </div>
 </template>
@@ -31,13 +31,13 @@ export default {
 <style scoped>
 div {
   width: 100%;
-  height: 300px;
+  height: fit-content;
   background-color: pink;
   padding: .2em;
   margin: 0;
 }
 img {
-  /*height: 300px;
-  float: left;*/
+  height: 150px;
+  float: left;
 }
 </style>
