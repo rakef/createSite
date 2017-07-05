@@ -4,9 +4,9 @@
       <button @click="handleAddCompPopup">&CirclePlus;</button>
       <add-cmpn-popup v-if="isAddCompPopupShown"></add-cmpn-popup>
       <component 
-          v-for="(cmpn, idx) in cmpnTemplates" 
-          :key="idx" :is="cmpn.cmpn"
-          :txt="cmpn.txt"
+          v-for="(cmp, idx) in cmpTemplates" 
+          :key="idx" :is="cmp.type"
+          :data="cmp"
       ></component>
       <!--<title-cmpn></title-cmpn>-->
   </main>
@@ -19,34 +19,21 @@ import Cat from '../component.templates/Cat';
 import AppHeader from '../component.templates/AppHeader';
 export default {
   components: {
-    AddCmpnPopup
-  },
-  data() {
-    return {
-      cmpnTemplates: [
-        {
-          cmpn: TitleCmpn,
-          txt: 'Yo Yo Yo'
-        },
-        {
-          cmpn: Cat,
-          txt: 'Meow'
-        },
-        {
-          cmpn: AppHeader,
-          txt: null
-        },
-      ]
-    }
+    AddCmpnPopup,
+    TitleCmpn,
+    Cat
   },
   methods: {
     handleAddCompPopup() {
-      this.$store.commit('toggleAddCompPopup')
+      this.$store.commit('toggleAddCompPopup');
     }
   },
   computed: {
-    isAddCompPopupShown() {return this.$store.state.isAddCompPopupShown}
-    // isModalOpen() {return this.$store.state.isModalOpen}
+    isAddCompPopupShown() {return this.$store.state.isAddCompPopupShown},
+
+    cmpTemplates() {
+      return this.$store.state.userComponentsData;
+    }
   }
 }
 </script>

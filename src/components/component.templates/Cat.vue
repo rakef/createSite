@@ -1,12 +1,12 @@
 <template>
   <div>
-      <img src="http://thecatapi.com/api/images/get?format=src&type=jpg">
-      <h3>{{ txt }}</h3>
+      <img :src="data.url">
+      <h3>{{ data.txt }}</h3>
   </div>
 </template>
 <script>
 export default {
-  props: ['txt'],
+  props: ['data'],
   data() {
     return {
     }
