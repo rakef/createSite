@@ -3,10 +3,10 @@
     <div>
         <span @click="handleAddCompPopup">&Cross;</span>
         <ul>
-            <li><img @click="renderComp(1)" src="../../assets/img/default_cmp_1.png"></li>
-            <li><img @click="renderComp(2)" src="../../assets/img/default_cmp_2.png"></li>
-            <li><img @click="renderComp(3)" src="../../assets/img/default_cmp_3.png"></li>
-            <li><img @click="renderComp(4)" src="../../assets/img/default_cmp_4.png"></li>
+            <li><img @click="handleAddCmp('title-cmpn')" src="../../assets/img/default_cmp_1.png"></li>
+            <li><img @click="handleAddCmp('cat')" src="../../assets/img/default_cmp_2.png"></li>
+            <li><img @click="handleAddCmp('app-header')" src="../../assets/img/default_cmp_3.png"></li>
+            <li><img @click="handleAddCmp(4)" src="../../assets/img/default_cmp_4.png"></li>
         </ul>
     </div>
   </section>
@@ -15,8 +15,9 @@
 <script>
 export default {
     methods: {
-        renderComp(typeNum) {
-
+        handleAddCmp(type) {
+            this.$store.commit({ type: 'addDataToUser', cmpType: type });
+            this.handleAddCompPopup();
         },
         handleAddCompPopup() {
             this.$store.commit('toggleAddCompPopup')
@@ -46,6 +47,7 @@ export default {
         max-width: 90%;
         border: solid 2px transparent;
         transition: border .3s;
+        cursor: pointer;
     }
     img:hover {
         border: solid 2px green;

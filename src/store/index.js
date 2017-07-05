@@ -9,57 +9,44 @@ const store = new Vuex.Store({
   state: {
 
     isAddCompPopupShown: false,
-    // defaultCmpns
-    txtComp: {
-      id: null,
-      txt: {
-        header: 'Some Text',
-        paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+
+    cmpID: 0,
+
+    defaultComponentData: [
+      {
+        type: 'title-cmpn',
+        txt: 'YO YO YO',
+        style: {
+          bgColor: 'white',
+          txtColor: 'black'
+        }
       },
-      style: {
-        bgColor: 'white',
-        txtColor: 'black'
+      {
+        type: 'cat',
+        url: 'http://thecatapi.com/api/images/get?format=src&type=jpg',
+        txt: 'Meow',
+        style: {
+          bgColor: 'white',
+          txtColor: 'black'
+        }
       }
-    },
+    ],
 
-    imgCmpn: {
-      id: null,
-      url: 'http://thecatapi.com/api/images/get?format=src&type=jpg',
-      txt: {
-        header: 'Some Text',
-        paragraph: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
-      },
-      style: {
-        bgColor: 'white',
-        txtColor: 'black'
-      }
-    },
+    userComponentsData: [
 
-    bgColor: (function(){
-      if (localStorage.bgColor) return localStorage.bgColor;
-      else return 'white';
-    })(),
-
-    txtColor: (function(){
-      if (localStorage.txtColor) return localStorage.txtColor;
-      else return 'black';
-    })(),
-
-    isModalOpen: false
+    ]
   },
 
   mutations: {
-    setBgColor (state, payload) {
-      state.bgColor = payload.bgColor;
-    },
-    setTxtColor (state, payload) {
-      state.txtColor = payload.txtColor;
-    },
-    toggleModal (state) {
-      state.isModalOpen = !state.isModalOpen;
-    },
     toggleAddCompPopup (state) {
       state.isAddCompPopupShown = !state.isAddCompPopupShown
+    },
+    addDataToUser(state, { cmpType }) {
+      // console.log(cmpnType);
+      let cmpData = state.defaultComponentData.find(data => data.type === cmpType);
+      let userCmpData = JSON.parse(JSON.stringify(cmpData));
+
+      state.userComponentsData.push(userCmpData);
     }
   }
 })
