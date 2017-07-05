@@ -1,13 +1,12 @@
 <template>
   <div>
-    <a href="http://thecatapi.com">
-      <img src="http://thecatapi.com/api/images/get?format=src&type=gif">
-    </a>
+      <h3>{{ txt }}</h3>
+      <img src="http://thecatapi.com/api/images/get?format=src&type=jpg">
   </div>
 </template>
 <script>
 export default {
-  name: 'cat',
+  props: ['txt'],
   data() {
     return {
     }
@@ -22,5 +21,8 @@ div {
   background-color: pink;
   padding: .2em;
   margin: 0;
+}
+img {
+  width: 150px;
 }
 </style>
