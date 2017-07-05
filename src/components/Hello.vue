@@ -2,12 +2,6 @@
   <div class="hello">
   <!--<img src="../assets/logo.png">-->
     <h1>{{ msg }}</h1>
-       
-    <ul>
-      <li>
-        <router-link to="template">Create your website</router-link>
-      </li>
-    </ul>
   </div>
 </template>
 
@@ -40,9 +34,5 @@ ul {
 li {
   display: inline-block;
   margin: 0 10px;
-}
-
-a {
-  color: #42b983;
 }
 </style>
