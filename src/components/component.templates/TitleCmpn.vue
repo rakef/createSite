@@ -1,12 +1,12 @@
 <template>
   <section>
-      <h1>{{txt}}</h1>
+      <h1>{{cmpData.txt}}</h1>
   </section>
 </template>
 
 <script>
 export default {
-  props: ['txt']
+  props: ['cmpData']
 
 }
 </script>

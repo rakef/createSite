@@ -1,14 +1,15 @@
 <template>
   <div>
-      <img src="http://thecatapi.com/api/images/get?format=src&type=jpg">
-      <h3>{{ txt }}</h3>
+      <img :src="catUrl">
+      <h3>{{ cmpData.txt }}</h3>
   </div>
 </template>
 <script>
 export default {
-  props: ['txt'],
+  props: ['cmpData'],
   data() {
     return {
+      catUrl: this.cmpData.url + '&' + Date.now()
     }
   }
 }

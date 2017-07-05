@@ -1,14 +1,12 @@
 <template>
   <main>
-      <!--<div v-for="cmpnTemplates"></div>-->
       <button @click="handleAddCompPopup">&CirclePlus;</button>
       <add-cmpn-popup v-if="isAddCompPopupShown"></add-cmpn-popup>
       <component 
-          v-for="(cmpn, idx) in cmpnTemplates" 
-          :key="idx" :is="cmpn.cmpn"
-          :txt="cmpn.txt"
+          v-for="cmp in cmpTemplates" 
+          :key="cmp.id" :is="cmp.type"
+          :cmpData="cmp"
       ></component>
-      <!--<title-cmpn></title-cmpn>-->
   </main>
 </template>
 
@@ -16,32 +14,25 @@
 import AddCmpnPopup from '../service/AddCmpnPopup';
 import TitleCmpn from '../component.templates/TitleCmpn';
 import Cat from '../component.templates/Cat';
+import AppHeader from '../component.templates/AppHeader';
 export default {
   components: {
-    AddCmpnPopup
-  },
-  data() {
-    return {
-      cmpnTemplates: [
-        {
-          cmpn: TitleCmpn,
-          txt: 'Yo Yo Yo'
-        },
-        {
-          cmpn: Cat,
-          txt: 'Meow'
-        },
-      ]
-    }
+    AddCmpnPopup,
+    TitleCmpn,
+    Cat,
+    AppHeader
   },
   methods: {
     handleAddCompPopup() {
-      this.$store.commit('toggleAddCompPopup')
+      this.$store.commit('toggleAddCompPopup');
     }
   },
   computed: {
-    isAddCompPopupShown() {return this.$store.state.isAddCompPopupShown}
-    // isModalOpen() {return this.$store.state.isModalOpen}
+    isAddCompPopupShown() {return this.$store.state.isAddCompPopupShown},
+
+    cmpTemplates() {
+      return this.$store.state.userComponentsData;
+    }
   }
 }
 </script>
