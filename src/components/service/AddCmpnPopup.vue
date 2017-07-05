@@ -34,7 +34,8 @@ export default {
         width: 60vw;
         height: fit-content;
         margin: auto;
-        background-color: #aaa;
+        background-color: rgba(39, 16, 16, 0.64);
+        border-radius: 5px;
     }
     ul {
         display: flex;

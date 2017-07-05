@@ -1,14 +1,12 @@
 <template>
   <main>
-      <!--<div v-for="cmpnTemplates"></div>-->
       <button @click="handleAddCompPopup">&CirclePlus;</button>
       <add-cmpn-popup v-if="isAddCompPopupShown"></add-cmpn-popup>
       <component 
-          v-for="(cmp, idx) in cmpTemplates" 
-          :key="idx" :is="cmp.type"
-          :data="cmp"
+          v-for="cmp in cmpTemplates" 
+          :key="cmp.id" :is="cmp.type"
+          :cmpData="cmp"
       ></component>
-      <!--<title-cmpn></title-cmpn>-->
   </main>
 </template>
 
@@ -21,7 +19,8 @@ export default {
   components: {
     AddCmpnPopup,
     TitleCmpn,
-    Cat
+    Cat,
+    AppHeader
   },
   methods: {
     handleAddCompPopup() {

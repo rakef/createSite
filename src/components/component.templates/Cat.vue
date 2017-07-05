@@ -1,14 +1,15 @@
 <template>
   <div>
-      <img :src="data.url">
-      <h3>{{ data.txt }}</h3>
+      <img :src="catUrl">
+      <h3>{{ cmpData.txt }}</h3>
   </div>
 </template>
 <script>
 export default {
-  props: ['data'],
+  props: ['cmpData'],
   data() {
     return {
+      catUrl: this.cmpData.url + '&' + Date.now()
     }
   }
 }

@@ -29,6 +29,16 @@ const store = new Vuex.Store({
           bgColor: 'white',
           txtColor: 'black'
         }
+      },
+      {
+        type: 'app-header',
+        imgUrl: 'http://perinetti.legtux.org/__template3/images/pic01.jpg',
+        title: 'give me a title',
+        subtitle: 'give me a subtitle',
+        style: {
+          bgColor: 'white',
+          txtColor: 'black'
+        }
       }
     ],
 
@@ -45,7 +55,7 @@ const store = new Vuex.Store({
       // console.log(cmpnType);
       let cmpData = state.defaultComponentData.find(data => data.type === cmpType);
       let userCmpData = JSON.parse(JSON.stringify(cmpData));
-
+      userCmpData.id = state.cmpID++;
       state.userComponentsData.push(userCmpData);
     }
   }

@@ -1,24 +1,24 @@
 <template>
   <div>
-    <img :src = "imgUrl"> </img>
-    <h1 contenteditable="true" @keyup="editTextContent($event)"> {{title}}</h1>
-    <p contenteditable="true">{{subtitle}} </p>
+    <img :src="cmpData.imgUrl"> </img>
+    <h1 contenteditable="true" @keyup="editTextContent($event)"> {{cmpData.title}}</h1>
+    <p contenteditable="true">{{cmpData.subtitle}} </p>
   </div>
 </template>
 <script>
 export default {
-  name: 'app-header',
-  data() {
-    return {
-      imgUrl: 'http://perinetti.legtux.org/__template3/images/pic01.jpg',
-      title: 'give me title',
-      subtitle: 'give me subtitle'
-    }
-  },
+  props: ['cmpData'],
+  // data() {
+  //   return {
+  //     imgUrl: 'http://perinetti.legtux.org/__template3/images/pic01.jpg',
+  //     title: 'give me a title',
+  //     subtitle: 'give me a subtitle'
+  //   }
+  // },
   methods: { 
     editTextContent(userTextChanges) { //element is what the user gave me, what she wrote
       console.log(userTextChanges)
-      this.title = userTextChanges.target.value ;
+      this.cmpData.title = userTextChanges.target.value ;
       console.log('change title ', userTextChanges.target)
     }
 
