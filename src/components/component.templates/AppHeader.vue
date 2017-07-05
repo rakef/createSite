@@ -16,10 +16,11 @@ export default {
     }
   },
   methods: { 
-    editTextContent(userTextChanges) { //element is what the user gave me, what she wrote
-      console.log(userTextChanges)
-      this.title = userTextChanges.target.value ;
-      console.log('change title ', userTextChanges.target)
+    editTextContent(input) { //element is what the user gave me, what she wrote
+      // debugger;
+      console.log(input.target.value)
+      this.title = inpupt.target.value ;
+      console.log('change title ', input.target.value)
     }
 
 
