@@ -2,11 +2,14 @@
   <div class="hello">
   <!--<img src="../assets/logo.png">-->
     <h1>{{ msg }}</h1>
+
+  <app-header></app-header>
   </div>
 </template>
 
 <script>
 import Cat from './component.templates/Cat'
+import AppHeader from './component.templates/AppHeader'
 export default {
   name: 'hello',
   data() {
@@ -14,7 +17,10 @@ export default {
       msg: 'Wixer!!!!!'
     }
   },
-  components: { Cat }
+  components: { 
+    Cat, 
+    AppHeader
+   }
 
 }
 </script>
