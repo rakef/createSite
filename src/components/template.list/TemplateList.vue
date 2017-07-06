@@ -2,6 +2,7 @@
   <main>
       <button @click="handleAddCompPopup">&CirclePlus;</button>
       <add-cmpn-popup v-if="isAddCompPopupShown"></add-cmpn-popup>
+
       <component 
           v-for="cmp in cmpTemplates" 
           :key="cmp.id" :is="cmp.type"

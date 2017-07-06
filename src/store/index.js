@@ -57,6 +57,11 @@ const store = new Vuex.Store({
       let userCmpData = JSON.parse(JSON.stringify(cmpData));
       userCmpData.id = state.cmpID++;
       state.userComponentsData.push(userCmpData);
+    },
+    deleteUserCmp(state, { cmpId }) {
+      let deletePos = state.userComponentsData.findIndex(userCmp => userCmp.id === cmpId);
+      if (deletePos !== -1)
+          state.userComponentsData.splice(deletePos, 1);
     }
   }
 })
