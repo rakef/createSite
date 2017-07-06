@@ -1,6 +1,6 @@
 <template>
   <div :style="{ backgroundImage: 'url(' + cmpData.imgUrl + ')' }">
-    <editComponents :cmpId="cmpData.id"></editComponents>
+    <edit-components :cmpId="cmpData.id"></edit-components>
     <!--<img :src="cmpData.imgUrl" />-->
     <h1 contenteditable="true" @keyup="editTextContent($event)"> {{cmpData.title}}</h1>
     <p contenteditable="true">{{cmpData.subtitle}} </p>

@@ -1,18 +1,25 @@
 <template>
   <div :style="{ backgroundColor: bgColor,
                  color: txtColor }">
+      <edit-components :cmpId="cmpData.id"></edit-components>
       <img :src="catUrl">
       <h3>{{ cmpData.txt }}</h3>
   </div>
 </template>
 <script>
+import editComponents from './components-edit';
+
 export default {
   props: ['cmpData'],
+  components: {
+    editComponents
+  },
   data() {
     return {
       catUrl: this.cmpData.url + '&' + Date.now()
     }
   },
+  // what is this down here??
   computed: {
     bgColor() {return this.$store.state.userComponentsData[0].style.bgColor},
     txtColor() {return this.$store.state.userComponentsData[0].style.txtColor},
