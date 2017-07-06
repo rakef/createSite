@@ -17,9 +17,9 @@ export default {
   // },
   methods: { 
     editTextContent(userTextChanges) { //element is what the user gave me, what she wrote
-      console.log(userTextChanges)
-      this.cmpData.title = userTextChanges.target.value ;
-      console.log('change title ', userTextChanges.target)
+      // console.log(userTextChanges)
+      this.cmpData.title = userTextChanges.target.innerHTML ;
+      console.log('this.cmpData.title: ', this.cmpData.title)
     }
 
 
@@ -31,7 +31,7 @@ export default {
 <style scoped>
 div {
   width: 100%;
-  height: fit-content;
+  min-height: 150px; 
   background-color: pink;
   padding: .2em;
   margin: 0;

@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div :style="{ backgroundColor: bgColor,
+                 color: txtColor }">
       <img :src="catUrl">
       <h3>{{ cmpData.txt }}</h3>
   </div>
@@ -11,6 +12,10 @@ export default {
     return {
       catUrl: this.cmpData.url + '&' + Date.now()
     }
+  },
+  computed: {
+    bgColor() {return this.$store.state.userComponentsData[0].style.bgColor},
+    txtColor() {return this.$store.state.userComponentsData[0].style.txtColor},
   }
 }
 </script>
@@ -20,7 +25,6 @@ export default {
 div {
   width: 100%;
   height: 150px;
-  background-color: pink;
   padding: .2em;
   margin: 0;
 }

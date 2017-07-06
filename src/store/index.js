@@ -43,7 +43,7 @@ const store = new Vuex.Store({
     ],
 
     userComponentsData: [
-
+      
     ]
   },
 
@@ -57,7 +57,13 @@ const store = new Vuex.Store({
       let userCmpData = JSON.parse(JSON.stringify(cmpData));
       userCmpData.id = state.cmpID++;
       state.userComponentsData.push(userCmpData);
-    }
+    },
+    changeBgColor(state, {bgColor}) {
+      state.userComponentsData[0].style.bgColor = bgColor;
+    },
+    changeTxtColor(state, {txtColor}) {
+      state.userComponentsData[0].style.txtColor = txtColor;
+    },
   }
 })
 

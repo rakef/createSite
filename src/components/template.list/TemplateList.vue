@@ -2,6 +2,7 @@
   <main>
       <button @click="handleAddCompPopup">&CirclePlus;</button>
       <add-cmpn-popup v-if="isAddCompPopupShown"></add-cmpn-popup>
+      <editor></editor>
       <component 
           v-for="cmp in cmpTemplates" 
           :key="cmp.id" :is="cmp.type"
@@ -15,12 +16,14 @@ import AddCmpnPopup from '../service/AddCmpnPopup';
 import TitleCmpn from '../component.templates/TitleCmpn';
 import Cat from '../component.templates/Cat';
 import AppHeader from '../component.templates/AppHeader';
+import Editor from '../service/Editor';
 export default {
   components: {
     AddCmpnPopup,
     TitleCmpn,
     Cat,
-    AppHeader
+    AppHeader,
+    Editor
   },
   methods: {
     handleAddCompPopup() {
