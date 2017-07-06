@@ -64,6 +64,11 @@ const store = new Vuex.Store({
     changeTxtColor(state, {txtColor}) {
       state.userComponentsData[0].style.txtColor = txtColor;
     },
+    deleteUserCmp(state, { cmpId }) {
+      let deletePos = state.userComponentsData.findIndex(userCmp => userCmp.id === cmpId);
+      if (deletePos !== -1)
+          state.userComponentsData.splice(deletePos, 1);
+    }
   }
 })
 
