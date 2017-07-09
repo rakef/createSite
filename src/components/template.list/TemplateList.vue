@@ -1,5 +1,7 @@
 <template>
+
   <main>
+      <button @click="handleAddCompPopup" data-toggle="tooltip" title="add component">&CirclePlus;</button>
       <add-cmpn-popup v-if="isAddCompPopupShown"></add-cmpn-popup>
       <editor v-if="isEditorShown"></editor>
       <component 
@@ -7,7 +9,10 @@
           :key="cmp.id" :is="cmp.type"
           :cmpData="cmp"
       ></component>
-      <button @click="handleAddCompPopup">&CirclePlus;</button>
+
+
+      <h2 v-if="cmpTemplates.length === 0"> Start building your websit by adding components </h2>
+      <img src="https://media.giphy.com/media/RrU8f9lImvJja/giphy.gif" v-if="cmpTemplates.length === 0"/>
   </main>
 </template>
 
@@ -35,18 +40,38 @@ export default {
 
     cmpTemplates() {
       return this.$store.state.userComponentsData;
+
+      
     },
     isEditorShown() {return this.$store.state.isEditorShown},
   }
 }
 </script>
 
-<style>
-  button {
-    font-size: 2em;
-    border: none;
-    padding: 2px;
-    background-color: transparent;
+<style scoped>
+  h2 {
+      font-family: 'Avenir', Helvetica, Arial, sans-serif;
+      margin-top: 0;
   }
   
+  button:hover:after{
+
+  }
+  
+  button {
+    background-color: transparent;
+    font-size: 2em;
+    border: none;
+    padding: 20px;
+  }
+  
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+img {
+margin: auto;
+}
+
 </style>
