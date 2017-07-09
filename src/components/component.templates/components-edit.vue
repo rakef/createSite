@@ -13,7 +13,7 @@ export default {
         }
     },
     methods: {
-        deleteComponent(event) {
+        deleteComponent() {
             var verifyDeletion = confirm('are you sure you want to delete this component?')
             console.log(this.cmpId);
 

@@ -32,7 +32,7 @@ const store = new Vuex.Store({
       },
       {
         type: 'app-header',
-        imgUrl: 'http://perinetti.legtux.org/__template3/images/pic01.jpg',
+        imgUrl: 'http://images.celebitchy.com/images/background.gif',
         title: 'give me a title',
         subtitle: 'give me a subtitle',
         style: {
