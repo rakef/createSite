@@ -1,6 +1,6 @@
 <template>
     <section>
-        <button>&#x270E </button>
+        <button @click="handleEditComp">&#x270E </button>
         <button v-on:click="deleteComponent"> x </button>
     </section>
 </template>
@@ -20,7 +20,12 @@ export default {
             if (verifyDeletion) {
                 this.$store.commit({ type: 'deleteUserCmp', cmpId: this.cmpId })
             }
+        },
+        handleEditComp() {
+            this.$store.commit({ type: 'setCurrEditedComp', cmpId: this.cmpId });
+            this.$store.commit('setIsEditorShown', {shouldShow: true});
         }
+
     }
 }
 </script>

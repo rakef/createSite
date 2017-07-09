@@ -9,16 +9,19 @@ const store = new Vuex.Store({
   state: {
 
     isAddCompPopupShown: false,
+    isEditorShown: false,
 
     cmpID: 0,
+
+    currEditedCompId: null,
 
     defaultComponentData: [
       {
         type: 'title-cmpn',
         txt: 'YO YO YO',
         style: {
-          bgColor: 'white',
-          txtColor: 'black'
+          backgroundColor: 'white',
+          color: 'black'
         }
       },
       {
@@ -26,8 +29,8 @@ const store = new Vuex.Store({
         url: 'http://thecatapi.com/api/images/get?format=src&type=jpg',
         txt: 'Meow',
         style: {
-          bgColor: 'white',
-          txtColor: 'black'
+          backgroundColor: 'white',
+          color: 'black'
         }
       },
       {
@@ -36,8 +39,8 @@ const store = new Vuex.Store({
         title: 'give me a title',
         subtitle: 'give me a subtitle',
         style: {
-          bgColor: 'white',
-          txtColor: 'black'
+          backgroundColor: 'white',
+          color: 'black'
         }
       }
     ],
@@ -58,17 +61,27 @@ const store = new Vuex.Store({
       userCmpData.id = state.cmpID++;
       state.userComponentsData.push(userCmpData);
     },
-    changeBgColor(state, {bgColor}) {
-      state.userComponentsData[0].style.bgColor = bgColor;
+    changeBgColor(state, {backgroundColor}) {
+      let editPos = state.userComponentsData.findIndex(userCmp => userCmp.id === state.currEditedCompId);
+      state.userComponentsData[editPos].style.backgroundColor = backgroundColor;
     },
-    changeTxtColor(state, {txtColor}) {
-      state.userComponentsData[0].style.txtColor = txtColor;
+    changeTxtColor(state, {color}) {
+      let editPos = state.userComponentsData.findIndex(userCmp => userCmp.id === state.currEditedCompId);
+      state.userComponentsData[editPos].style.color = color;
     },
     deleteUserCmp(state, { cmpId }) {
       let deletePos = state.userComponentsData.findIndex(userCmp => userCmp.id === cmpId);
       if (deletePos !== -1)
           state.userComponentsData.splice(deletePos, 1);
-    }
+    },
+    setCurrEditedComp(state, { cmpId }) {
+      state.currEditedCompId = cmpId;
+      // console.log('state.currEditedCompId',state.currEditedCompId);
+    },
+    setIsEditorShown(state, {shouldShow}) {
+      state.isEditorShown = shouldShow;
+    },
+    
   }
 })
 

@@ -1,13 +1,13 @@
 <template>
   <main>
-      <button @click="handleAddCompPopup">&CirclePlus;</button>
       <add-cmpn-popup v-if="isAddCompPopupShown"></add-cmpn-popup>
-      <editor></editor>
+      <editor v-if="isEditorShown"></editor>
       <component 
           v-for="cmp in cmpTemplates" 
           :key="cmp.id" :is="cmp.type"
           :cmpData="cmp"
       ></component>
+      <button @click="handleAddCompPopup">&CirclePlus;</button>
   </main>
 </template>
 
@@ -35,7 +35,8 @@ export default {
 
     cmpTemplates() {
       return this.$store.state.userComponentsData;
-    }
+    },
+    isEditorShown() {return this.$store.state.isEditorShown},
   }
 }
 </script>

@@ -1,6 +1,5 @@
 <template>
-  <div :style="{ backgroundColor: bgColor,
-                 color: txtColor }">
+  <div :style="cmpData.style">
       <edit-components :cmpId="cmpData.id"></edit-components>
       <img :src="catUrl">
       <h3>{{ cmpData.txt }}</h3>
@@ -20,10 +19,10 @@ export default {
     }
   },
   // what is this down here??
-  computed: {
-    bgColor() {return this.$store.state.userComponentsData[0].style.bgColor},
-    txtColor() {return this.$store.state.userComponentsData[0].style.txtColor},
-  }
+  // computed: {
+  //   bgColor() {return this.$store.state.userComponentsData[0].style.bgColor},
+  //   txtColor() {return this.$store.state.userComponentsData[0].style.txtColor},
+  // }
 }
 </script>
 
