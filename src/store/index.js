@@ -3,11 +3,6 @@ import Vuex from 'vuex';
 
 Vue.use(Vuex);
 
-// function getCurrEditComp(state) {
-//   return state.userComponentsData.findIndex(userCmp => 
-//                       userCmp.id === state.currEditedCompId);
-// }
-
 const store = new Vuex.Store({
   state: {
 
@@ -62,6 +57,10 @@ const store = new Vuex.Store({
           backgroundColor: 'white',
           color: 'black'
         }
+      },
+      {
+        type: 'mapComp',
+        marker: {lat: 32.956638, lng: 35.739718}
       }
     ],
 
@@ -110,7 +109,11 @@ const store = new Vuex.Store({
     setNewImgUrl(state, payload) {
       let editPos = store.getters.getEditedCompIdx;
       state.userComponentsData[editPos].imgUrls.splice([payload.imgNum - 1], 1 ,payload.imgUrl);
-
+    },
+    setNewCoords(state, {marker}) {
+      let editPos = store.getters.getEditedCompIdx;
+      // console.log('marker', marker);
+      state.userComponentsData[editPos].marker = marker;
     }
     
   }

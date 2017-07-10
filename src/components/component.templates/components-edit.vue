@@ -34,6 +34,7 @@ export default {
 section {
     display: flex;
     position: absolute;
+    right: 0;
     z-index: 9;
     overflow: hidden;
     /*border-radius: 1em;*/

@@ -6,6 +6,7 @@
             <li><img @click="handleAddCmp('cat')" src="../../assets/img/default_cmp_2.png"></li>
             <li><img @click="handleAddCmp('app-header')" src="../../assets/img/default_cmp_3.png"></li>
             <li><img @click="handleAddCmp('carousel')" src="../../assets/img/default_cmp_4.png"></li>
+            <li><img @click="handleAddCmp('mapComp')" src="../../assets/img/google-maps-logo.jpg"></li>
         </ul>
   </section>
 </template>
@@ -32,7 +33,7 @@ export default {
         left: 20%;
         width: 60vw;
         height: fit-content;
-        margin: auto;
+        /*margin: auto;*/
         background-color: rgba(39, 16, 16, 0.64);
         border-radius: 5px;
     }

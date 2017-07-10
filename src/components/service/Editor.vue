@@ -18,6 +18,12 @@
                 <input @click="handleNewImgUrl(imgNum, $event)" type="submit">
             </p>
         </section>
+        <section v-show="EditedCompType === 'mapComp'">
+            <p>Set marker position</p>
+            <input type="number" placeholder="Latitude">
+            <input type="number" placeholder="Longitude">
+            <input type="submit" @click="handleNewCoords($event)">
+        </section>
     </vue-draggable-resizable>
 </template>
 
@@ -43,10 +49,14 @@ export default {
             this.$store.commit({ type: 'changeTxtColor', color: event.target.value });
         },
         handleNewImgUrl(imgNum, event) {
-            // console.log('imgNum: ',imgNum, 'event: ', event);
-            // console.log('url: ', event.target.parentElement.children[0].value);
             this.$store.commit({ type: 'setNewImgUrl', imgNum,
                                     imgUrl: event.target.parentElement.children[0].value });
+        },
+        handleNewCoords(event) {
+            this.$store.commit({ type: 'setNewCoords', 
+                marker: {lat: +event.target.parentElement.children[1].value,
+                        lng: +event.target.parentElement.children[2].value}
+            })
         },
         handleCloseEditor() {
             this.$store.commit('setIsEditorShown', { shouldShow: false });

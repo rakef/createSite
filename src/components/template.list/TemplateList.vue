@@ -11,8 +11,8 @@
       <button @click="handleAddCompPopup" data-toggle="tooltip" title="add component">&CirclePlus;</button>
 
 
-      <h2 v-if="cmpTemplates.length === 0"> Start building your websit by adding components </h2>
-      <img src="https://media.giphy.com/media/RrU8f9lImvJja/giphy.gif" v-if="cmpTemplates.length === 0">
+      <h2 v-if="!cmpTemplates.length"> Start building your websit by adding components </h2>
+      <!--<img v-if="!cmpTemplates.length" src="http://bestanimations.com/Nature/beautiful-sun-reflecting-in-water-rock-bottom-river-brook-animated-gif.gif">-->
   </main>
 </template>
 
@@ -22,6 +22,7 @@ import TitleCmpn from '../component.templates/TitleCmpn';
 import Cat from '../component.templates/Cat';
 import AppHeader from '../component.templates/AppHeader';
 import Carousel from '../component.templates/Carousel';
+import MapComp from '../component.templates/MapComp';
 import Editor from '../service/Editor';
 export default {
   components: {
@@ -30,6 +31,7 @@ export default {
     Cat,
     AppHeader,
     Carousel,
+    MapComp,
     Editor    
   },
   methods: {
