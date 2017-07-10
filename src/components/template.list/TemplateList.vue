@@ -1,7 +1,6 @@
 <template>
 
   <main>
-      <button @click="handleAddCompPopup" data-toggle="tooltip" title="add component">&CirclePlus;</button>
       <add-cmpn-popup v-if="isAddCompPopupShown"></add-cmpn-popup>
       <editor v-if="isEditorShown"></editor>
       <component 
@@ -9,6 +8,7 @@
           :key="cmp.id" :is="cmp.type"
           :cmpData="cmp"
       ></component>
+      <button @click="handleAddCompPopup" data-toggle="tooltip" title="add component">&CirclePlus;</button>
 
 
       <h2 v-if="cmpTemplates.length === 0"> Start building your websit by adding components </h2>
@@ -48,7 +48,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   h2 {
       font-family: 'Avenir', Helvetica, Arial, sans-serif;
       margin-top: 0;
@@ -65,10 +65,10 @@ export default {
     padding: 20px;
   }
   
-main {
+/*main {
   display: flex;
   flex-direction: column;
-}
+}*/
 
 img {
 margin: auto;
