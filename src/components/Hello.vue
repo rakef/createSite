@@ -40,7 +40,7 @@ h2 {
 }
 
 ul {
-  list-style-type: none;
+  list-style: none;
   padding: 0;
 }
 

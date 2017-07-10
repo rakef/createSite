@@ -18,15 +18,9 @@ export default {
       catUrl: this.cmpData.url + '&' + Date.now()
     }
   },
-  // what is this down here??
-  // computed: {
-  //   bgColor() {return this.$store.state.userComponentsData[0].style.bgColor},
-  //   txtColor() {return this.$store.state.userComponentsData[0].style.txtColor},
-  // }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 div {
   width: 100%;
