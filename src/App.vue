@@ -25,6 +25,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+
 }
 ul {
   list-style: none;
@@ -34,16 +35,25 @@ ul {
 li {
   display: inline-block;
   padding: 10px;
+  font-size:25px;
+
 }
 a {
   text-decoration: none;
   color: #42b983;
   transition: all .3s;
+  color: rgb(217, 34, 31);
+  /*font-weight: bold;*/
 }
 a:hover {
-  color: #126d44;
+  color: rgb(254, 166, 52);
 }
 button {
   cursor: pointer;
+}
+
+html, body {
+margin: 0;
+padding: 0;
 }
 </style>

@@ -29,7 +29,6 @@ export default {
 div {
   width: 100%;
   min-height: 150px; 
-  background-color: pink;
   padding: .2em;
   margin: 0;
 }
