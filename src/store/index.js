@@ -21,12 +21,22 @@ const store = new Vuex.Store({
     defaultComponentData: [
       {
         type: 'title-cmpn',
+        title: 'Give me a title',
+        subtitle: 'Subtitle',
         txt: 'YO YO YO',
         style: {
           backgroundColor: 'white',
-          color: 'black'
+          color: 'black', 
         }
-      },
+      }, 
+      {
+        type: 'app-text',
+        title: 'About Farming',
+        txt:`Vegetable farming is the growing of vegetables for human consumption.
+             The practice probably started in several parts of the world over ten thousand years ago,
+             with families growing vegetables for their own consumption.`
+            
+      }, 
       {
         type: 'cat',
         url: 'http://thecatapi.com/api/images/get?format=src&type=jpg',
@@ -38,9 +48,9 @@ const store = new Vuex.Store({
       },
       {
         type: 'app-header',
-        imgUrl: 'http://images.celebitchy.com/images/background.gif',
-        title: 'give me a title',
-        subtitle: 'give me a subtitle',
+        imgUrl: 'https://photos-4.dropbox.com/t/2/AAD_rog0bpq7jntYxzPDZ-05cXuSILVtufUbKXohRhwxHA/12/16224430/png/32x32/1/_/1/2/transparent.png/ENrOiwwYh8gEIAIoAg/hocVlmucM6YKnEZs8gGXF1xSHMq4QQCfaY8ixNwr6R0?size=1600x1200&size_mode=3',
+        title: 'Give me a title',
+        subtitle: 'Give me a subtitle',
         style: {
           backgroundColor: 'white',
           color: 'black'

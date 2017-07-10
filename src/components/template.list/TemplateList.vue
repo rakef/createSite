@@ -23,6 +23,7 @@ import Cat from '../component.templates/Cat';
 import AppHeader from '../component.templates/AppHeader';
 import Carousel from '../component.templates/Carousel';
 import Editor from '../service/Editor';
+import AppText from '../component.templates/AppText'
 export default {
   components: {
     AddCmpnPopup,
@@ -30,7 +31,8 @@ export default {
     Cat,
     AppHeader,
     Carousel,
-    Editor    
+    Editor,
+    AppText 
   },
   methods: {
     handleAddCompPopup() {

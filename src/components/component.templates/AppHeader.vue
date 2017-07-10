@@ -37,4 +37,5 @@ img {
   height: 150px;
   float: left;
 }
+
 </style>

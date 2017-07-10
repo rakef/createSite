@@ -6,6 +6,7 @@
             <li><img @click="handleAddCmp('cat')" src="../../assets/img/default_cmp_2.png"></li>
             <li><img @click="handleAddCmp('app-header')" src="../../assets/img/default_cmp_3.png"></li>
             <li><img @click="handleAddCmp('carousel')" src="../../assets/img/default_cmp_4.png"></li>
+            <li><img @click="handleAddCmp('app-text')" src="../../assets/img/default_cmp_4.png"></li>
         </ul>
   </section>
 </template>
