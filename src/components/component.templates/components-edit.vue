@@ -1,7 +1,7 @@
 <template>
     <section>
         <button @click="handleEditComp">&#x270E </button>
-        <button v-on:click="deleteComponent"> x </button>
+        <button v-on:click="deleteComponent">&#128465;</button>
     </section>
 </template>
 
@@ -36,7 +36,7 @@ section {
     position: absolute;
     z-index: 9;
     overflow: hidden;
-    border-radius: 1em;
+    /*border-radius: 1em;*/
     box-shadow: 0px 0px 9px 1px rgba(0,0,0,0.5);
 }
 
@@ -47,10 +47,11 @@ button {
     height: 40px;
     margin: 0;
     outline: none;
+    font-size: 1.5em;
 }
 
-button:first-child {
+/*button:first-child {
     left: 1.5em;
     font-size: 25px;
-}
+}*/
 </style>

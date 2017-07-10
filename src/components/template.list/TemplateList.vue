@@ -12,7 +12,7 @@
 
 
       <h2 v-if="cmpTemplates.length === 0"> Start building your websit by adding components </h2>
-      <img src="https://media.giphy.com/media/RrU8f9lImvJja/giphy.gif" v-if="cmpTemplates.length === 0"/>
+      <img src="https://media.giphy.com/media/RrU8f9lImvJja/giphy.gif" v-if="cmpTemplates.length === 0">
   </main>
 </template>
 
@@ -50,14 +50,10 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   h2 {
       font-family: 'Avenir', Helvetica, Arial, sans-serif;
       margin-top: 0;
-  }
-  
-  button:hover:after{
-
   }
   
   button {
