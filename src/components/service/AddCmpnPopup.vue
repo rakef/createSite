@@ -1,14 +1,12 @@
 <template>
   <section>
-    <div>
         <span @click="handleAddCompPopup">&Cross;</span>
         <ul>
             <li><img @click="handleAddCmp('title-cmpn')" src="../../assets/img/default_cmp_1.png"></li>
             <li><img @click="handleAddCmp('cat')" src="../../assets/img/default_cmp_2.png"></li>
             <li><img @click="handleAddCmp('app-header')" src="../../assets/img/default_cmp_3.png"></li>
-            <li><img @click="handleAddCmp(4)" src="../../assets/img/default_cmp_4.png"></li>
+            <li><img @click="handleAddCmp('carousel')" src="../../assets/img/default_cmp_4.png"></li>
         </ul>
-    </div>
   </section>
 </template>
 
@@ -27,8 +25,9 @@ export default {
 </script>
 
 <style scoped>
-    div {
+    section {
         position: fixed;
+        z-index: 999;
         top: 5%;
         left: 20%;
         width: 60vw;

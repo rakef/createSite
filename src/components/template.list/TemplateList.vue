@@ -16,14 +16,18 @@ import AddCmpnPopup from '../service/AddCmpnPopup';
 import TitleCmpn from '../component.templates/TitleCmpn';
 import Cat from '../component.templates/Cat';
 import AppHeader from '../component.templates/AppHeader';
+import Carousel from '../component.templates/Carousel';
 import Editor from '../service/Editor';
+import CarouselEditor from '../component.editors/CarouselEditor';
 export default {
   components: {
     AddCmpnPopup,
     TitleCmpn,
     Cat,
     AppHeader,
-    Editor
+    Carousel,
+    Editor,
+    CarouselEditor
   },
   methods: {
     handleAddCompPopup() {

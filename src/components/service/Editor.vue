@@ -1,8 +1,23 @@
 <template>
-    <vue-draggable-resizable class="editor-container" :resizable="false">
+    <vue-draggable-resizable 
+        class="editor-container" 
+        :resizable="false" 
+        style="height: fit-content; z-index: 99;">
         <span @click="handleCloseEditor">&Cross;</span>
-        <p>BG Color<input @change="handleBgChange($event)" type="color"></p>
-        <p>Text Color<input @change="handleTxtChange($event)" type="color"></p>
+        <section v-show="EditedCompType === 'cat'">
+            <p>BG Color
+                <input @change="handleBgChange($event)" type="color">
+            </p>
+            <p>Text Color
+                <input @change="handleTxtChange($event)" type="color">
+            </p>
+        </section>
+        <section v-show="EditedCompType === 'carousel'">
+            <p v-for="imgNum in 5" :key="imgNum">Image {{imgNum}}:
+                <input type="url" placeholder="image URL">
+                <input @click="handleNewImgUrl(imgNum, $event)" type="submit">
+            </p>
+        </section>
     </vue-draggable-resizable>
 </template>
 
@@ -12,6 +27,14 @@ export default {
     components: {
         VueDraggableResizable
     },
+
+    computed: {
+        EditedCompType() {
+            let compIdx = this.$store.getters.getEditedCompIdx;
+            return this.$store.state.userComponentsData[compIdx].type;
+        }
+    },
+
     methods: {
         handleBgChange(event) {
             this.$store.commit({ type: 'changeBgColor', backgroundColor: event.target.value });
@@ -19,8 +42,14 @@ export default {
         handleTxtChange(event) {
             this.$store.commit({ type: 'changeTxtColor', color: event.target.value });
         },
+        handleNewImgUrl(imgNum, event) {
+            // console.log('imgNum: ',imgNum, 'event: ', event);
+            // console.log('url: ', event.target.parentElement.children[0].value);
+            this.$store.commit({ type: 'setNewImgUrl', imgNum,
+                                    imgUrl: event.target.parentElement.children[0].value });
+        },
         handleCloseEditor() {
-            this.$store.commit('setIsEditorShown', {shouldShow: false});
+            this.$store.commit('setIsEditorShown', { shouldShow: false });
         }
     }
 
@@ -28,26 +57,25 @@ export default {
 </script>
 
 <style scoped>
-    .editor-container {
-        position: absolute;
-        background-color: rgba(128, 147, 178, .9);
-        padding: 15px;
-        border-radius: 5px;
-        display: flex;
-        justify-content: space-between;
-    }
+.editor-container {
+    position: fixed;
+    background-color: rgba(128, 147, 178, .9);
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+}
 
-    span {
-        position: absolute;
-        top: 0;
-        right: 10px;
-        line-height: .5em;
-        display: block;
-        cursor: pointer;
-        font-size: 3em;
-        padding: 0;
-        margin: 0;
-        color: white;
-    }
-    
+span {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    line-height: .5em;
+    display: block;
+    cursor: pointer;
+    font-size: 3em;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
 </style>
