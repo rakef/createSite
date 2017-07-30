@@ -18,24 +18,27 @@ const store = new Vuex.Store({
         type: 'title-cmpn',
         title: 'Give me a title',
         subtitle: 'Subtitle',
-        txt: 'YO YO YO',
         style: {
           backgroundColor: 'white',
-          color: 'black', 
+          color: 'black',
         }
-      }, 
+      },
       {
         type: 'app-text',
-        title: 'About Farming',
-        txt:`Vegetable farming is the growing of vegetables for human consumption.
+        title: 'Write something about the component below :)',
+        txt: `Vegetable farming is the growing of vegetables for human consumption.
              The practice probably started in several parts of the world over ten thousand years ago,
              with families growing vegetables for their own consumption.`
-            
+
+      },
+      {
+        type: 'app-weather',
       }, 
       {
         type: 'cat',
-        url: 'http://thecatapi.com/api/images/get?format=src&type=jpg',
-        txt: 'Meow',
+        // url: 'http://www.greenmtn.edu/wordpress/wp-content/uploads/Farm-Food-landingpage-top-1600x575.jpg',
+        title: 'Write something about your farm',
+        txt: 'Write something about your farm', 
         style: {
           backgroundColor: 'white',
           color: 'black'
@@ -70,7 +73,7 @@ const store = new Vuex.Store({
       },
       {
         type: 'mapComp',
-        marker: {lat: 32.956638, lng: 35.739718}
+        marker: { lat: 32.956638, lng: 35.739718 }
       }
     ],
 
@@ -80,12 +83,12 @@ const store = new Vuex.Store({
   },
   getters: {
     getEditedCompIdx: state => {
-      return state.userComponentsData.findIndex(userCmp => 
-                      userCmp.id === state.currEditedCompId);
+      return state.userComponentsData.findIndex(userCmp =>
+        userCmp.id === state.currEditedCompId);
     }
   },
   mutations: {
-    toggleAddCompPopup (state) {
+    toggleAddCompPopup(state) {
       state.isAddCompPopupShown = !state.isAddCompPopupShown
     },
     addDataToUser(state, { cmpType }) {
@@ -96,36 +99,40 @@ const store = new Vuex.Store({
       state.userComponentsData.push(userCmpData);
     },
 
-    changeBgColor(state, {backgroundColor}) {
+    changeBgColor(state, { backgroundColor }) {
       let editPos = store.getters.getEditedCompIdx;
       state.userComponentsData[editPos].style.backgroundColor = backgroundColor;
     },
-    changeTxtColor(state, {color}) {
+    changeTxtColor(state, { color }) {
       let editPos = store.getters.getEditedCompIdx;
       state.userComponentsData[editPos].style.color = color;
     },
     deleteUserCmp(state, { cmpId }) {
       let deletePos = state.userComponentsData.findIndex(userCmp => userCmp.id === cmpId);
       if (deletePos !== -1)
-          state.userComponentsData.splice(deletePos, 1);
+        state.userComponentsData.splice(deletePos, 1);
     },
     setCurrEditedComp(state, { cmpId }) {
       state.currEditedCompId = cmpId;
       // console.log('state.currEditedCompId',state.currEditedCompId);
     },
-    setIsEditorShown(state, {shouldShow}) {
+    setIsEditorShown(state, { shouldShow }) {
       state.isEditorShown = shouldShow;
     },
     setNewImgUrl(state, payload) {
       let editPos = store.getters.getEditedCompIdx;
-      state.userComponentsData[editPos].imgUrls.splice([payload.imgNum - 1], 1 ,payload.imgUrl);
+      state.userComponentsData[editPos].imgUrls.splice([payload.imgNum - 1], 1, payload.imgUrl);
     },
-    setNewCoords(state, {marker}) {
+    setNewCoords(state, { marker }) {
       let editPos = store.getters.getEditedCompIdx;
       // console.log('marker', marker);
       state.userComponentsData[editPos].marker = marker;
+    },
+    updateComponentsOrder(state, { newCmpsOrder }) {
+      state.userComponentsData = newCmpsOrder;
     }
-    
+
+
   }
 })
 

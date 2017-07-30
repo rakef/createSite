@@ -1,5 +1,6 @@
 <template>
-  <div class="hello" :style="{ 'background-image': 'url(' + backgroundImage + ')' }">
+  <div class="HomePage" :style="{ 'background-image': 'url(' + backgroundImage + ')' }">
+    <img src=""/>
     <h1>&nbsp{{ msg }}&nbsp</h1>
     <h2><a href="template">&nbspBuild a website for your farm&nbsp</a></h2>
   </div>
@@ -9,7 +10,7 @@
 import Cat from './component.templates/Cat'
 import AppHeader from './component.templates/AppHeader'
 export default {
-  name: 'hello',
+  name: 'HomePage',
   data() {
     return {
       msg: 'Welcome to Farmer-builder ',
@@ -49,7 +50,7 @@ li {
   margin: 0 10px;
 }
 
-.hello {
+.HomePage {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center top;

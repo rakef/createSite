@@ -4,6 +4,8 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store/index.js'
+import draggable from 'vuedraggable'
+import 'font-awesome/css/font-awesome.css'
 
 import * as VueGoogleMaps from 'vue2-google-maps';
 Vue.use(VueGoogleMaps, {
@@ -13,6 +15,8 @@ Vue.use(VueGoogleMaps, {
       // libraries: 'places', //// If you need to use place input
     }
   });
+
+  Vue.use(draggable)
 
 
 Vue.config.productionTip = false

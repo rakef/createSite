@@ -1,26 +1,32 @@
 <template>
     <section>
-        <span @click="handleAddCompPopup">&Cross;</span>
-        <ul>
-            <li>
-                <img @click="handleAddCmp('title-cmpn')" src="../../assets/img/default_cmp_1.png">
-            </li>
-            <li>
-                <img @click="handleAddCmp('cat')" src="../../assets/img/default_cmp_2.png">
-            </li>
-            <li>
-                <img @click="handleAddCmp('app-header')" src="../../assets/img/default_cmp_3.png">
-            </li>
-            <li>
-                <img @click="handleAddCmp('carousel')" src="../../assets/img/default_cmp_4.png">
-            </li>
-            <li>
-                <img @click="handleAddCmp('app-text')" src="../../assets/img/default_cmp_5.png">
-            </li>
-            <li>
-                <img @click="handleAddCmp('mapComp')" src="../../assets/img/default_cmp_6.png">
-            </li>
-        </ul>
+        <div>
+            <span @click="handleAddCompPopup">&Cross;</span>
+            <ul>
+                <li>
+                    <img @click="handleAddCmp('title-cmpn')" src="../../assets/img/default_cmp_1.png">
+                </li>
+                <li>
+                    <img @click="handleAddCmp('cat')" src="../../assets/img/default_cmp_2.png">
+                </li>
+                <li>
+                    <img @click="handleAddCmp('app-header')" src="../../assets/img/default_cmp_3.png">
+                </li>
+                <li>
+                    <img @click="handleAddCmp('carousel')" src="../../assets/img/default_cmp_4.png">
+                </li>
+                <li>
+                    <img @click="handleAddCmp('app-text')" src="../../assets/img/default_cmp_5.png">
+                </li>
+                <li>
+                    <img @click="handleAddCmp('mapComp')" src="../../assets/img/default_cmp_6.png">
+                </li>
+                <li>
+                    <img @click="handleAddCmp('app-weather')" src="../../assets/img/default_cmp_7.png">
+                </li>
+    
+            </ul>
+        </div>
     </section>
 </template>
 
@@ -40,39 +46,47 @@ export default {
 
 <style scoped>
 section {
+    display: flex;
+    /*flex-direction: column;*/
+    justify-content: center;
     position: fixed;
     z-index: 999;
-    top: 5%;
-    left: 20%;
-    width: 50vw;
-    height: fit-content;
+    /*top: 5%;
+    left: 20%;*/
+    width: 100vw;
+    /*height: fit-content;*/
     /*margin: auto;*/
     background-color: rgba(255, 255, 255, 1);
     border-radius: 5px;
 }
 
-li {
+div {
     position: relative;
-    border: 2px solid #333;
+    display: flex;
+    justify-content: center
+}
+
+li {
+    /*position: relative;*/
+    border: 1px solid #333;
     margin: 1%;
     overflow: hidden;
-    width: 540px;
-    background: white;
+    width: 400px;
+    cursor: pointer;
 }
 
 ul {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    background: white;
+    width: fit-content;
 }
 
 img {
-    height: 100px;
-    /*max-width: 90%;*/
-    border: solid 2px transparent;
-    transition: border .3s;
-    cursor: pointer;
+    vertical-align: top;
+    width: 100%;
+    max-width: 100%;
     transition: all 0.3s;
 }
 
@@ -81,6 +95,23 @@ img:hover {
 }
 
 span {
+    /*z-index: 999;
+    position: absolute;
+    top: 0;
+    right: 10px;*/
+    text-align: right;
+    line-height: .5em;
+    display: block;
+    cursor: pointer;
+    font-size: 3em;
+    padding: 10px;
+    margin: 0;
+    color: black;
+}
+
+
+/*span {
+    z-index: 999;
     position: absolute;
     top: 0;
     right: 10px;
@@ -88,8 +119,13 @@ span {
     display: block;
     cursor: pointer;
     font-size: 3em;
-    padding: 0;
+    padding: 10px;
     margin: 0;
-    color: white;
+    color: black;
+}*/
+
+* {
+    margin: 0;
+    padding: 0;
 }
 </style>

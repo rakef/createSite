@@ -1,27 +1,42 @@
 <template>
-    
+  <section>
+    <edit-components class="weather":cmpId="cmpData.id"></edit-components>
+  
+    <p> The weather tomorrow is expected to be: </p>
+    <h1>Sunny </h1>
+    <img src="http://www.misskatecuttables.com/uploads/shopping_cart/9192/large_cute-sun8.png" />
+  </section>
 </template>
 
 <script>
-var config = {
-    units: "imperial",
-    debug: process.env.NODE_ENV === 'development'
-};
+import editComponents from './components-edit';
+export default {
+  props: ['cmpData'],
 
-// Create the simpleWeather base object 
-//  - pass in an optional config object 
-var simpleWeather = require("simple-weather")(config);
-
-// Get the current weather of London, UK for Open Weather API v2.5 
-simpleWeather["v2.5"].current.byCityName("London", "uk").then(function (response) {
-    console.log("Current Weather of London, UK is");
-    console.log("Temperature:", response.main.temp, "Farenheit");
-}).catch(function (err) {
-    console.error(err.stack);
-});
-
+  methods: {
+    editTextContent(ev) { //element is what the user gave me, what she wrote
+      // console.log(userTextChanges)
+      this.cmpData.title = ev.target.innerText;
+      console.log('this.cmpData.title: ', this.cmpData.title)
+    }
+  },
+  components: {
+    editComponents
+  }
+}
 </script>
+<style scoped>
+section {
+  display: flex;
+  flex-direction: column;
+}
 
-<style>
+.weather {
+    flex-direction: row;
+}
 
+img {
+  width: 20%;
+  margin: auto;
+}
 </style>

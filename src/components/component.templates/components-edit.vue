@@ -1,7 +1,11 @@
 <template>
     <section>
-        <button @click="handleEditComp">&#x270E </button>
-        <button v-on:click="deleteComponent">&#128465;</button>
+        <button @click="handleEditComp"><i class="fa fa-pencil" aria-hidden="true"></i>
+ </button>
+        <button v-on:click="deleteComponent"><i class="fa fa-trash" aria-hidden="true"></i>
+</button>
+        <button class="drag" ><i class="fa fa-hand-paper-o" aria-hidden="true"></i>
+</button>
     </section>
 </template>
 
@@ -49,6 +53,10 @@ button {
     margin: 0;
     outline: none;
     font-size: 1.5em;
+}
+.draggable-element{
+background: red;
+
 }
 
 /*button:first-child {
