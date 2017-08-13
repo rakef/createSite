@@ -7,9 +7,9 @@
       <li>
         <router-link to="template">Create your website</router-link>
       </li>
-      <li>
+      <!-- <li>
         <router-link to="publish">Publish</router-link>  
-      </li>
+      </li> -->
     </ul>
     <router-view></router-view>
   </div>

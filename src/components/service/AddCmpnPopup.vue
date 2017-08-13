@@ -3,28 +3,22 @@
         <div>
             <span @click="handleAddCompPopup">&Cross;</span>
             <ul>
+                <!--ner correct ul  -->
                 <li>
-                    <img @click="handleAddCmp('title-cmpn')" src="../../assets/img/default_cmp_1.png">
+                    <img @click="handleAddCmp('app-text')" src="../../assets/img/cmp1.png">
                 </li>
                 <li>
-                    <img @click="handleAddCmp('cat')" src="../../assets/img/default_cmp_2.png">
+                    <img @click="handleAddCmp('cat')" src="../../assets/img/cmp2.png">
                 </li>
                 <li>
-                    <img @click="handleAddCmp('app-header')" src="../../assets/img/default_cmp_3.png">
+                    <img @click="handleAddCmp('carousel')" src="../../assets/img/cmp3.png">
                 </li>
                 <li>
-                    <img @click="handleAddCmp('carousel')" src="../../assets/img/default_cmp_4.png">
+                    <img @click="handleAddCmp('mapComp')" src="../../assets/img/cmp4.png">
                 </li>
                 <li>
-                    <img @click="handleAddCmp('app-text')" src="../../assets/img/default_cmp_5.png">
+                    <img @click="handleAddCmp('app-weather')" src="../../assets/img/cmp5.png">
                 </li>
-                <li>
-                    <img @click="handleAddCmp('mapComp')" src="../../assets/img/default_cmp_6.png">
-                </li>
-                <li>
-                    <img @click="handleAddCmp('app-weather')" src="../../assets/img/default_cmp_7.png">
-                </li>
-    
             </ul>
         </div>
     </section>
@@ -47,15 +41,10 @@ export default {
 <style scoped>
 section {
     display: flex;
-    /*flex-direction: column;*/
     justify-content: center;
     position: fixed;
     z-index: 999;
-    /*top: 5%;
-    left: 20%;*/
     width: 100vw;
-    /*height: fit-content;*/
-    /*margin: auto;*/
     background-color: rgba(255, 255, 255, 1);
     border-radius: 5px;
 }
@@ -67,7 +56,6 @@ div {
 }
 
 li {
-    /*position: relative;*/
     border: 1px solid #333;
     margin: 1%;
     overflow: hidden;
@@ -81,6 +69,7 @@ ul {
     align-items: center;
     background: white;
     width: fit-content;
+    height: 1000px;
 }
 
 img {
@@ -108,6 +97,7 @@ span {
     margin: 0;
     color: black;
 }
+
 
 
 /*span {

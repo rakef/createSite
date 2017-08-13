@@ -8,7 +8,7 @@
 
 <script>
 import Cat from './component.templates/Cat'
-import AppHeader from './component.templates/AppHeader'
+// import AppHeader from './component.templates/AppHeader'
 export default {
   name: 'HomePage',
   data() {
@@ -19,7 +19,7 @@ export default {
   },
   components: {
     Cat,
-    AppHeader,
+    // AppHeader,
   }
 
 }

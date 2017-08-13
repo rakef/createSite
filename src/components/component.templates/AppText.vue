@@ -1,9 +1,9 @@
 <template>
-    <div>
+    <div :style="cmpData.style">
     <edit-components :cmpId="cmpData.id"></edit-components>
-
-        <h1 contenteditable="true" @blur="editTextContent($event)">{{cmpData.title}} </h1>
-        <!--<pre contenteditable="true" @blur="editTextContent($event)">{{cmpData.txt}}</pre>-->
+        <h1 contenteditable="true" @blur="editTextContent($event, 'title')">{{cmpData.title}} </h1>
+        <pre contenteditable="true" @blur="editTextContent($event, 'txt')">{{cmpData.txt}}</pre>
+        <!-- <p> {{ cmpData.txt}} </p> -->
     </div>
 </template>
 
@@ -22,13 +22,25 @@ export default {
         }
     },
     methods: {
-        editTextContent(ev) { //element is what the user gave me, what she wrote
+        editTextContent(ev, prop) { //element is what the user gave me, what she wrote
             // console.log(userTextChanges)
-            this.cmpData.title = ev.target.innerText;
-            console.log('this.cmpData.title: ', this.cmpData.title)
+            this.cmpData[prop] = ev.target.innerText;
+            console.log('this.cmpData.title: ', this.cmpData[prop]);
+            console.log(ev);
         }
     },
-}
+
+     computed: {
+    detectTexColorChange() {   
+            return this.$store.state.userComponentsData[compIdx].type;
+    }
+     },
+        created(){
+        console.log(this.cmpData, 'adasfasf')
+    }
+
+  }
+
 </script>
 
 <style scoped>
@@ -43,7 +55,8 @@ h1 {
     margin-bottom: 0;
     padding-bottom: 0;
 }
-pre {
+* {
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
+
 </style>

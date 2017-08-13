@@ -22,9 +22,9 @@
 <script>
 import draggable from 'vuedraggable'
 import AddCmpnPopup from '../service/AddCmpnPopup';
-import TitleCmpn from '../component.templates/TitleCmpn';
+// import TitleCmpn from '../component.templates/TitleCmpn';
 import Cat from '../component.templates/Cat';
-import AppHeader from '../component.templates/AppHeader';
+// import AppHeader from '../component.templates/AppHeader';
 import Carousel from '../component.templates/Carousel';
 import MapComp from '../component.templates/MapComp';
 import Editor from '../service/Editor';
@@ -33,9 +33,9 @@ import AppWeather from '../component.templates/AppWeather';
 export default {
   components: {
     AddCmpnPopup,
-    TitleCmpn,
+    // TitleCmpn,
     Cat,
-    AppHeader,
+    // AppHeaAppHeader,
     Carousel,
     Editor,
     AppText, 

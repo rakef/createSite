@@ -25,10 +25,15 @@ const store = new Vuex.Store({
       },
       {
         type: 'app-text',
-        title: 'Write something about the component below :)',
+        title: 'About Farming',
         txt: `Vegetable farming is the growing of vegetables for human consumption.
              The practice probably started in several parts of the world over ten thousand years ago,
-             with families growing vegetables for their own consumption.`
+             with families growing vegetables for their own consumption.`,
+                     style: {
+          backgroundColor: 'white',
+          color: 'black',
+        }
+
 
       },
       {
@@ -57,11 +62,13 @@ const store = new Vuex.Store({
       {
         type: 'carousel',
         imgUrls: [
-          'https://s-media-cache-ak0.pinimg.com/originals/f6/b0/ed/f6b0ed852c763dc4d2fd57fd638a3bb5.jpg',
-          'http://allswalls.com/images/cat-grass-wallpaper-1.jpg',
-          'https://stuffwhitepeoplelike.files.wordpress.com/2010/03/830161744_bce0da8cc4.jpg',
-          'http://www.njfamily.com/PickYourOwnFruit.png',
-          'http://il6.picdn.net/shutterstock/videos/2890054/thumb/1.jpg',
+          'http://agrifarming.in/wp-content/uploads/2015/02/Tomato-Cultivation1.jpg?x73645',
+          'http://www.foundshit.com/images/tomatina-tomato-bath.jpg',
+          'http://www.gaebler.com/images/startbiz/Vegetable-Farm.jpg',
+          'https://usercontent2.hubstatic.com/3071661_f520.jpg',
+          'http://lydafarms.com/wp-content/uploads/2016/07/Lyda-Farms-Photography-50-920x400.jpg',
+          'http://im.rediff.com/money/2013/apr/10farmers6.jpg',
+          // 'https://www.wealthresult.com/agriculture/how-to-start-tomato-farming'
 
         ],
         title: 'give me a title',
@@ -105,7 +112,10 @@ const store = new Vuex.Store({
     },
     changeTxtColor(state, { color }) {
       let editPos = store.getters.getEditedCompIdx;
+      // console.log('editPos is ', editPos );
       state.userComponentsData[editPos].style.color = color;
+      console.log(state.userComponentsData[editPos])
+      console.log('store- text color changed to ', state.userComponentsData[editPos].style.color)
     },
     deleteUserCmp(state, { cmpId }) {
       let deletePos = state.userComponentsData.findIndex(userCmp => userCmp.id === cmpId);
